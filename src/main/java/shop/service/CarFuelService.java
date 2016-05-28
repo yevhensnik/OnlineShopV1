@@ -6,13 +6,13 @@ import shop.domain.CarFuel;
 
 public interface CarFuelService {
 
-	void createCarFuel(String type);
+	public void saveCarFuel(CarFuel carFuel);
 
-	void editCarFuel(String type);
+	public List<CarFuel> getAllCarFuels();
 
-	void deleteCarFuel(String type);
-	
-	List<CarFuel> getAllCarFuels();
-	
-	CarFuel findByType(String type); 
+	public void updateCarFuel(CarFuel carFuel);
+
+	public void deleteCarFuel(Long id);
+
+	public CarFuel findOneById(Long id);
 }

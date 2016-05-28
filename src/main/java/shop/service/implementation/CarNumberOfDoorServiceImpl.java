@@ -4,37 +4,41 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import shop.dao.CarNumberOfDoorDao;
 import shop.domain.CarNumberOfDoor;
+import shop.service.CarNumberOfDoorService;
 
 @Service
-public class CarNumberOfDoorServiceImpl {
+public class CarNumberOfDoorServiceImpl implements CarNumberOfDoorService {
 
 	@Autowired
 	private CarNumberOfDoorDao dao;
-	
-	public void createCarNumberOfDoor(int numberOfDoor) {
-		CarNumberOfDoor carNumberOfDoor = new CarNumberOfDoor(numberOfDoor);
-		dao.createCarNumberOfDoor(carNumberOfDoor);
-		
+
+	@Transactional
+	public void saveCarNumberOfDoor(CarNumberOfDoor carNumberOfDoor) {
+		dao.save(carNumberOfDoor);
 	}
 
-	public void editCarNumberOfDoor(int numberOfDoor) {
-		CarNumberOfDoor carNumberOfDoor = new CarNumberOfDoor(numberOfDoor);
-		dao.editCarNumberOfDoor(carNumberOfDoor);
-		
+	@Transactional
+	public List<CarNumberOfDoor> getAllCarNumberOfDoors() {
+		return dao.getAll();
 	}
 
-	public void deleteCarNumberOfDoor(int numberOfDoor) {
-		CarNumberOfDoor carNumberOfDoor = new CarNumberOfDoor(numberOfDoor);
-		dao.deleteCarNumberOfDoor(carNumberOfDoor);
-		
+	@Transactional
+	public void updateCarNumberOfDoor(CarNumberOfDoor carNumberOfDoor) {
+		dao.update(carNumberOfDoor);
 	}
-	
-	public List<CarNumberOfDoor> findByDoorsPeriod(int from, int till){
-		return dao.findByDoorsPeriod(from, till);
-		
+
+	@Transactional
+	public void deleteCarNumberOfDoor(Long id) {
+		dao.delete(findOneById(id));
+	}
+
+	@Transactional
+	public CarNumberOfDoor findOneById(Long id) {
+		return dao.findOneById(id);
 	}
 	
 }

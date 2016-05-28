@@ -6,13 +6,13 @@ import shop.domain.CarColor;
 
 public interface CarColorService {
 
-	void createCarColor(String name);
+	public void saveCarColor(CarColor carColor);
 
-	void editCarColor(String name);
+	public List<CarColor> getAllCarColors();
 
-	void deleteCarColor(String name);
-	
-	List<CarColor> getAllCarColor();
-	
-	CarColor findByName(String name);
+	public void updateCarColor(CarColor carColor);
+
+	public void deleteCarColor(Long id);
+
+	public CarColor findOneById(Long id);
 }

@@ -4,41 +4,41 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import shop.dao.CarFuelDao;
 import shop.domain.CarFuel;
+import shop.service.CarFuelService;
 
 @Service
-public class CarFuelServiceImpl {
+public class CarFuelServiceImpl implements CarFuelService {
 
 	@Autowired
 	private CarFuelDao dao;
-	
-	public void createCarFuel(String name) {
-		CarFuel fuel = new CarFuel(name);
-		dao.createCarFuel(fuel);
-		
+
+	@Transactional
+	public void saveCarFuel(CarFuel carFuel) {
+		dao.save(carFuel);
 	}
 
-	public void editCarFuel(String name) {
-		CarFuel fuel = new CarFuel(name);
-		dao.editCarFuel(fuel);
-		
+	@Transactional
+	public List<CarFuel> getAllCarFuels() {
+		return dao.getAll();
 	}
 
-	public void deleteCarFuel(String name) {
-		CarFuel fuel = new CarFuel(name);
-		dao.deleteCarFuel(fuel);
-		
+	@Transactional
+	public void updateCarFuel(CarFuel carFuel) {
+		dao.update(carFuel);
 	}
 
-	public List<CarFuel> getAllCarFuel() {
-		
-		return dao.getAllCarFuels();
+	@Transactional
+	public void deleteCarFuel(Long id) {
+		dao.delete(findOneById(id));
 	}
 
-	public CarFuel findByType(String type) {
-		return dao.findByType(type);
+	@Transactional
+	public CarFuel findOneById(Long id) {
+		return dao.findOneById(id);
 	}
 	
 }

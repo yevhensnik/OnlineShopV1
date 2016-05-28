@@ -5,15 +5,14 @@ import java.util.List;
 import shop.domain.CarTypeOfDrive;
 
 public interface CarTypeOfDriveService {
-
 	
-	void createCarTypeOfDrive(String name);
+	public void saveCarTypeOfDrive(CarTypeOfDrive carTypeOfDrive);
 
-	void editCarTypeOfDrive(String name);
+	public List<CarTypeOfDrive> getAllCarTypeOfDrives();
 
-	void deleteCarTypeOfDrive(String name);
-	
-	List<CarTypeOfDrive> getAllCarTypeOfDrives();
-	
-	CarTypeOfDrive findByName(String name);
+	public void updateCarTypeOfDrive(CarTypeOfDrive carTypeOfDrive);
+
+	public void deleteCarTypeOfDrive(Long id);
+
+	public CarTypeOfDrive findOneById(Long id);
 }

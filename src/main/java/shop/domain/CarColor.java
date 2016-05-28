@@ -15,8 +15,9 @@ import javax.persistence.OneToMany;
 public class CarColor {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY) 
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	private Long id;
+	
 	@Column(name = "name")
 	private String name;
 	
@@ -29,10 +30,10 @@ public class CarColor {
 	public CarColor(String name) {
 		this.name = name;
 	}
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {

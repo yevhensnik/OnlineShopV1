@@ -6,11 +6,13 @@ import shop.domain.CarNumberOfSeats;
 
 public interface CarNumberOfSeatsService {
 
-	void createCarNumberOfSeats(int carNumberOfSeats);
+	public void saveCarNumberOfSeats(CarNumberOfSeats carNumberOfSeats);
 
-	void editCarNumberOfSeats(int carNumberOfSeats);
+	public List<CarNumberOfSeats> getAllCarNumberOfSeats();
 
-	void deleteCarNumberOfSeats(int carNumberOfSeats);
-	
-	List<CarNumberOfSeats> findBySeatsPeriod(int from, int till);
+	public void updateCarNumberOfSeats(CarNumberOfSeats carNumberOfSeats);
+
+	public void deleteCarNumberOfSeats(Long id);
+
+	public CarNumberOfSeats findOneById(Long id);
 }

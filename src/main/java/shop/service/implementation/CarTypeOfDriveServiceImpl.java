@@ -4,41 +4,41 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import shop.dao.CarTypeOfDriveDao;
 import shop.domain.CarTypeOfDrive;
+import shop.service.CarTypeOfDriveService;
 
 @Service
-public class CarTypeOfDriveServiceImpl {
+public class CarTypeOfDriveServiceImpl implements CarTypeOfDriveService{
 	
 	@Autowired
 	private CarTypeOfDriveDao dao;
-	
-	public void createCarTypeOfDrive(String name) {
-		CarTypeOfDrive typeOfDrive = new CarTypeOfDrive(name);
-		dao.createCarTypeOfDrive(typeOfDrive);
-		
+
+	@Transactional
+	public void saveCarTypeOfDrive(CarTypeOfDrive carTypeOfDrive) {
+		dao.save(carTypeOfDrive);
 	}
 
-	public void editCarTypeOfDrive(String name) {
-		CarTypeOfDrive typeOfDrive = new CarTypeOfDrive(name);
-		dao.editCarTypeOfDrive(typeOfDrive);
-		
-	}
-
-	public void deleteCarTypeOfDrive(String name) {
-		CarTypeOfDrive typeOfDrive = new CarTypeOfDrive(name);
-		dao.deleteCarTypeOfDrive(typeOfDrive);
-		
-	}
-
+	@Transactional
 	public List<CarTypeOfDrive> getAllCarTypeOfDrives() {
-		
-		return dao.getAllCarTypeOfDrives();
+		return dao.getAll();
 	}
 
-	public CarTypeOfDrive findByName(String name) {
-		return dao.findByName(name);
+	@Transactional
+	public void updateCarTypeOfDrive(CarTypeOfDrive carTypeOfDrive) {
+		dao.update(carTypeOfDrive);
 	}
 
+	@Transactional
+	public void deleteCarTypeOfDrive(Long id) {
+		dao.delete(findOneById(id));
+	}
+
+	@Transactional
+	public CarTypeOfDrive findOneById(Long id) {
+		return dao.findOneById(id);
+	}
+	
 }

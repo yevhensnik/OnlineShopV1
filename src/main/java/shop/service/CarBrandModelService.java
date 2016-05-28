@@ -6,13 +6,13 @@ import shop.domain.CarBrandModel;
 
 public interface CarBrandModelService {
 
-	void createCarBrandModel(String name);
+	public void saveCarBrandModel(CarBrandModel carBrandModel);
 
-	void editCarBrandModel(String name);
+	public List<CarBrandModel> getAllCarBrandModels();
 
-	void deleteCarBrandModel(String name);
-	
-	List<CarBrandModel> getAllCarBrandModels();
+	public void updateCarBrandModel(CarBrandModel carBrandModel);
 
-	CarBrandModel findByName(String name);
+	public void deleteCarBrandModel(Long id);
+
+	public CarBrandModel findOneById(Long id);
 }

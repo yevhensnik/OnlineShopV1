@@ -16,7 +16,8 @@ public class CarFuel {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
-	private int id;
+	private Long id;
+	
 	@Column(name = "type")
 	private String type;
 	
@@ -29,10 +30,10 @@ public class CarFuel {
 	public CarFuel(String type) {
 		this.type = type;
 	}
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getType() {

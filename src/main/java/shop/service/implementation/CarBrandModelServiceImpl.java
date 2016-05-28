@@ -4,41 +4,40 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import shop.dao.CarBrandModelDao;
 import shop.domain.CarBrandModel;
+import shop.service.CarBrandModelService;
 
 @Service
-public class CarBrandModelServiceImpl {
+public class CarBrandModelServiceImpl implements CarBrandModelService{
 	
 	@Autowired
 	private CarBrandModelDao dao;
-	
-	public void createCarBrandModel(String name) {
-		CarBrandModel brandModel = new CarBrandModel(name);
-		dao.createCarBrandModel(brandModel);
-		
+
+	@Transactional
+	public void saveCarBrandModel(CarBrandModel carBrandModel) {
+		dao.save(carBrandModel);
 	}
 
-	public void editCarBrandModel(String name) {
-		CarBrandModel brandModel = new CarBrandModel(name);
-		dao.editCarBrandModel(brandModel);
-		
-	}
-
-	public void deleteCarBrandModel(String name) {
-		CarBrandModel brandModel = new CarBrandModel(name);
-		dao.deleteCarBrandModel(brandModel);
-		
-	}
-
+	@Transactional
 	public List<CarBrandModel> getAllCarBrandModels() {
-		
-		return dao.getAllCarBrandModels();
+		return dao.getAll();
 	}
 
-	public CarBrandModel findByName(String name) {
-		return dao.findByName(name);
+	@Transactional
+	public void updateCarBrandModel(CarBrandModel carBrandModel) {
+		dao.update(carBrandModel);
 	}
 
+	@Transactional
+	public void deleteCarBrandModel(Long id) {
+		dao.delete(findOneById(id));
+	}
+
+	@Transactional
+	public CarBrandModel findOneById(Long id) {
+		return dao.findOneById(id);
+	}
 }

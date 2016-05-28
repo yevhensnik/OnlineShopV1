@@ -6,14 +6,13 @@ import shop.domain.CarGearBox;
 
 public interface CarGearBoxService {
 	
-	void createCarGearBox(String type);
+	public void saveCarGearBox(CarGearBox carGearBox);
 
-	void editCarGearBox(String type);
+	public List<CarGearBox> getAllCarGearBoxs();
 
-	void deleteCarGearBox(String type);
-	
-	List<CarGearBox> getAllCarGearBox();
-	
-	CarGearBox findByType(String type);
+	public void updateCarGearBox(CarGearBox carGearBox);
 
+	public void deleteCarGearBox(Long id);
+
+	public CarGearBox findOneById(Long id);
 }

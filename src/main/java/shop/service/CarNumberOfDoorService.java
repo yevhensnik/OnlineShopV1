@@ -5,12 +5,14 @@ import java.util.List;
 import shop.domain.CarNumberOfDoor;
 
 public interface CarNumberOfDoorService {
-
-	void createCarNumberOfDoor(int carNumberOfDoor);
-
-	void editCarNumberOfDoor(int carNumberOfDoor);
-
-	void deleteCarNumberOfDoor(int carNumberOfDoor);
 	
-	List<CarNumberOfDoor> findByDoorsPeriod(int from, int till);
+	public void saveCarNumberOfDoor(CarNumberOfDoor carNumberOfDoor);
+
+	public List<CarNumberOfDoor> getAllCarNumberOfDoors();
+
+	public void updateCarNumberOfDoor(CarNumberOfDoor carNumberOfDoor);
+
+	public void deleteCarNumberOfDoor(Long id);
+
+	public CarNumberOfDoor findOneById(Long id);
 }

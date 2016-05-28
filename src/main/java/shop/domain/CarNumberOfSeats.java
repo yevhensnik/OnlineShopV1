@@ -16,7 +16,8 @@ public class CarNumberOfSeats {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY) 
-	private int id;
+	private Long id;
+	
 	@Column(name = "seat")
 	private int seat;
 	
@@ -29,10 +30,10 @@ public class CarNumberOfSeats {
 	public CarNumberOfSeats(int seat) {
 		this.seat = seat;
 	}
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public int getSeat() {

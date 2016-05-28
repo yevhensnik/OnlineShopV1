@@ -6,42 +6,26 @@ import shop.domain.Car;
 
 public interface CarService {
 	
-	void createCar(int carPrice, int carYear, int horsePower, int mileage, 
-			double engine, double fuelConsumptionCity, double fuelConsumptionHighway, double fuelConsumptionAvarage,
-			boolean credit, boolean defective, 
-			String brandName, String brandModelName,
-			String wheelDriveType,
-			String gearBoxTypeName,
-			String fuelTypeName,
-			String colorName,
-			int numberOfSeats,
-			int numberOfDoors);
+	public void saveCar(Car car);
 
-	void editCar(int carPrice, int carYear, int horsePower, int mileage, 
-			double engine, double fuelConsumptionCity, double fuelConsumptionHighway, double fuelConsumptionAvarage,
-			boolean credit, boolean defective, 
-			String brandName, String brandModelName,
-			String wheelDriveType,
-			String gearBoxTypeName,
-			String fuelTypeName,
-			String colorName,
-			int numberOfSeats,
-			int numberOfDoors);
+	public List<Car> getAllCars();
 
-	void deleteCar(int id);
+	public void updateCar(Car car);
+
+	public void deleteCar(Long id);
+
+	public Car findOneById(Long id);
 	
-	List<Car> getAllCars();
-	
-	List<Car> findByYearPeriod(int from, int till);
-	List<Car> findByPrisePeriod(int from, int till);
-	List<Car> findByFuelConsumptionCity(double from, double till);
-	List<Car> findByFuelConsumptionHighway(double from, double till);
-	List<Car> findByFuelConsumptionAvarage(double from, double till);
-	
-	List<Car> findByHorsePower(int from, int till);
-	List<Car> findByMileage(int from, int till);
-	List<Car> findByEngine(double from, double till);
-	
-	List<Car> findByCredit(boolean credit);
-	List<Car> findByDefective(boolean defective);
+//	List<Car> findByYearPeriod(int from, int till);
+//	List<Car> findByPrisePeriod(int from, int till);
+//	List<Car> findByFuelConsumptionCity(double from, double till);
+//	List<Car> findByFuelConsumptionHighway(double from, double till);
+//	List<Car> findByFuelConsumptionAvarage(double from, double till);
+//	
+//	List<Car> findByHorsePower(int from, int till);
+//	List<Car> findByMileage(int from, int till);
+//	List<Car> findByEngine(double from, double till);
+//	
+//	List<Car> findByCredit(boolean credit);
+//	List<Car> findByDefective(boolean defective);
 }

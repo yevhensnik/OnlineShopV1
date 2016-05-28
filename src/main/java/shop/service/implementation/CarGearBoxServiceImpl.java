@@ -4,41 +4,41 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import shop.dao.CarGearBoxDao;
 import shop.domain.CarGearBox;
+import shop.service.CarGearBoxService;
 
 @Service
-public class CarGearBoxServiceImpl {
+public class CarGearBoxServiceImpl implements CarGearBoxService {
 
 	@Autowired
 	private CarGearBoxDao dao;
-	
-	public void createCarGearBox(String type) {
-		CarGearBox gearBox = new CarGearBox(type);
-		dao.createCarGearBox(gearBox);
-		
+
+	@Transactional
+	public void saveCarGearBox(CarGearBox carGearBox) {
+		dao.save(carGearBox);
 	}
 
-	public void editCarGearBox(String type) {
-		CarGearBox gearBox = new CarGearBox(type);
-		dao.editCarGearBox(gearBox);
-		
+	@Transactional
+	public List<CarGearBox> getAllCarGearBoxs() {
+		return dao.getAll();
 	}
 
-	public void deleteCarGearBox(String type) {
-		CarGearBox gearBox = new CarGearBox(type);
-		dao.deleteCarGearBox(gearBox);
-		
+	@Transactional
+	public void updateCarGearBox(CarGearBox carGearBox) {
+		dao.update(carGearBox);
 	}
 
-	public List<CarGearBox> getAllCarGearBox() {
-		
-		return dao.getAllCarGearBox();
+	@Transactional
+	public void deleteCarGearBox(Long id) {
+		dao.delete(findOneById(id));
 	}
 
-	public CarGearBox findByType(String type) {
-		return dao.findByType(type);
+	@Transactional
+	public CarGearBox findOneById(Long id) {
+		return dao.findOneById(id);
 	}
 	
 }

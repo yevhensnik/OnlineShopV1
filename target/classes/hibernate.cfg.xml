@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+	<session-factory>
+		<mapping class="shop.domain.Car" />
+		<mapping class="shop.domain.CarBrand" />
+		<mapping class="shop.domain.CarBrandModel" />
+		<mapping class="shop.domain.CarCategory" />
+		<mapping class="shop.domain.CarSubCategory" />
+		<mapping class="shop.domain.CarColor" />
+		<mapping class="shop.domain.CarFuel" />
+		<mapping class="shop.domain.CarGearBox" />
+		<mapping class="shop.domain.CarNumberOfSeats" />
+		<mapping class="shop.domain.CarNumberOfDoor" />
+		<mapping class="shop.domain.CarTypeOfDrive" />
+	</session-factory>
+
+</hibernate-configuration>
