@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/resources/taglib.jsp"%>
 <spring:url value="/showAllCarColors" var="urlShowCarColors" />
+<spring:url value="/showAllCarBrands" var="urlShowCarBrands" />
 <!DOCTYPE html>
 <html>
 <jsp:include page="header.jsp" />
@@ -22,6 +23,7 @@
 	</div>
 	<div>
 		<a class="navbar-brand" href="${urlShowCarColors}">Car Colors</a>
+		<a class="navbar-brand" href="${urlShowCarBrands}">Car Brands</a>
 	</div>
 	
 	

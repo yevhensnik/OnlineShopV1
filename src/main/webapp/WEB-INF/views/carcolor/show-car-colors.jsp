@@ -7,21 +7,32 @@
 <title>Car COLORS</title>
 </head>
 <body>
-		<form action="deleteAuthor">
+		<form action="deleteCarColor">
 			<table class="table table-hover">
 				<tr>
-					<th>Name and Surname</th>
 					<th>Delete</th>
-					<th>Edit</th>
+					<th>Color</th>
+					<th>Update</th>
 				</tr>
 				<c:forEach items="${allCarColors}" var="carcolor">
 					<tr>
+						<td><input type="checkbox" name="checkbox"
+							value="${carcolor.id}"></td>
 						<td>${carcolor.name}</td>
-						
+						<td><a class="btn btn-primary"
+							href="updateCarColor-${carcolor.id}">Update</a></td>						
 					</tr>
 				</c:forEach>
-				<a href="createColor" class="btn btn-info">Add Color</a>
+				
 			</table>
+			<div class="form-group">
+				
+			 <input class="btn btn-danger" type="submit" value="delete"
+				id="delete" disabled />
+				
+			</div>
+			<a href="createColor" class="btn btn-info">Add Color</a>
+			
 		</form>
 </body>
 </html>
